@@ -74,7 +74,6 @@ pipeline {
                     }
                 }
                 sh 'mv target/*.jar .'
-                sh 'rm original-*.jar'
             }
         }         
     }
