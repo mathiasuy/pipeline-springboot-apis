@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { docker { image 'maven:3.3.3' } }
     options {
         skipStagesAfterUnstable()
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '15'))    
@@ -14,6 +14,11 @@ pipeline {
         stage('Wipe') {
             steps {
                 cleanWs deleteDirs: true, notFailBuild: true
+            }
+        }
+        stage('build') {
+            steps {
+                sh 'mvn --version'
             }
         }        
         stage('Clone') {
