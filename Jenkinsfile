@@ -40,28 +40,28 @@ pipeline {
             }
         }           
         stage('Setup') {
-            tools {
-                jdk "jdk-11.0.2"
-                maven 'Maven 3.6.3' 
-            }      
+            //tools {
+            //    jdk "jdk-11.0.2"
+            //    maven 'Maven 3.6.3' 
+            //}      
             steps {
                 sh 'mvn versions:set -DnewVersion=${version}.${BUILD_ID}-SNAPSHOT'
             }
         }
         stage('Clean') {
-            tools {
-                jdk "jdk-11.0.2"
-                maven 'Maven 3.6.3' 
-            }      
+            //tools {
+            //    jdk "jdk-11.0.2"
+            //    maven 'Maven 3.6.3' 
+            //}      
             steps {
                 sh 'mvn -B clean'
             }
         }
         stage('Build') {
-            tools {
-                jdk "jdk-11.0.2"
-                maven 'Maven 3.6.3' 
-            }      
+            //tools {
+            //    jdk "jdk-11.0.2"
+            //    maven 'Maven 3.6.3' 
+            //}      
             steps {
                 sh 'mvn -B -DskipTests package'
             }
