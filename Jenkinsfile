@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
+    agent { docker { image '3.6.3-openjdk-11' } }
     options {
         skipStagesAfterUnstable()
         buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '15'))    
